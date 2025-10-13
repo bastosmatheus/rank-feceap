@@ -3,8 +3,15 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    environment:
+      - PORT=${PORT}
+      - DB_USER=${DB_USER}
+      - DB_DATABASE=${DB_DATABASE}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_PORT=${DB_PORT}
+      - DB_HOST=${DB_HOST}
     ports:
-      - "7777:7777"
+      - "${PORT}:7777"
     networks:
       - feceap_network
     restart: always
