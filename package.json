@@ -1,0 +1,19 @@
+{
+  "name": "rank-feceap",
+  "version": "1.0.0",
+  "description": "Painel com os projetos mais votados da FeCeap",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/scripts/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "pg": "^8.16.3"
+  }
+}

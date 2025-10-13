@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Rank de projetos | FeCeap</title>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="reset.css" />
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <main>
+            <h2>Projetos mais votados no momento</h2>
+
+            <ul></ul>
+        </main>
+
+        <script>
+            const ul = document.querySelector("ul");
+
+            fetch("/projetos-mais-votados",)
+            .then((response) => response.json())
+            .then((data) => {
+                for (let i = data.projects.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [data.projects[i], data.projects[j]] = [data.projects[j], data.projects[i]];
+                }
+
+                data.projects.forEach((project) => {
+                    const li = document.createElement('li');
+                    
+                    li.innerHTML = `${project.nome}`
+
+                    if (project.area === 'SIT') li.style.backgroundColor = '#800080'
+
+                    if (project.area === 'SRT') li.style.backgroundColor = '#0000FF'
+
+                    if (project.area === 'SAT') li.style.backgroundColor = '#006F00'
+
+                    if (project.area === 'SPT') li.style.backgroundColor = '#F3AA00'
+                    
+                    ul.appendChild(li);
+                })
+            });
+        </script>
+    </body>
+</html>
