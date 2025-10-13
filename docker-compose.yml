@@ -11,4 +11,3 @@ services:
 
 networks:
   feceap_network:
-    external: true
