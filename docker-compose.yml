@@ -1,0 +1,14 @@
+services:
+  rank-feceap:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    networks:
+      - feceap_network
+    restart: always
+
+networks:
+  feceap_network:
+    external: true
